@@ -1,0 +1,10 @@
+["protostar.config"]
+protostar_version = "0.5.0"
+
+["protostar.project"]
+libs_path = "lib"
+
+["protostar.contracts"]
+ERC20ex02 = [
+    "/home/nadai/Nadai Cairo Edu-ERC20 Starknet/contracts/Solución/ERC20ex02.cairo",
+]
