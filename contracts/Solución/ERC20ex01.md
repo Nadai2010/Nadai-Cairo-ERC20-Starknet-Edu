@@ -150,9 +150,9 @@ Como podemos ver todo parece correcto.
 
 ## Verificación de ejercio
 
-Ahora estamos listos para enviar nuestro contrato inteligente ERC721 [Deploy ERC20ex02](https://goerli.voyager.online/contract/0x022bb88e1219fddbca1cc9ac3927798e7af0268bbb439733d9a72a47557b7cd1) al [Evaluador]((https://goerli.voyager.online/contract/0x14ece8a1dcdcc5a56f01a987046f2bd8ddfb56bc358da050864ae6da5f71394) usando la función de `submit_erc20_solution`. Enviamos así nuestro contrato inteligente ERC20 al Evaluador.
+Ahora estamos listos para enviar nuestro contrato inteligente ERC721 [Deploy ERC20ex02](https://goerli.voyager.online/contract/0x022bb88e1219fddbca1cc9ac3927798e7af0268bbb439733d9a72a47557b7cd1) al [Evaluador](https://goerli.voyager.online/contract/0x14ece8a1dcdcc5a56f01a987046f2bd8ddfb56bc358da050864ae6da5f71394) usando la función de `submit_erc20_solution`. Enviamos así nuestro contrato inteligente ERC20 al Evaluador.
 
-![Graph](/contracts/Imagenes/submitercex02.png)
+![Graph](/contracts/Imagenes/submiterc20ex02.png)
 
 * [Hash](https://goerli.voyager.online/tx/0x54c10d6e85ace788daa130b5e452fdad2f3d5de09f95e0c30bb4109b727893d)
 
