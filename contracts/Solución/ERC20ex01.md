@@ -1,6 +1,6 @@
 ## Configuraciones basicas de protostar
 
-Si quiere usar [Protostar](https://github.com/Nadai2010/Nadai-ERC20-Protostar-Cairo), siga esta repo para configurarla, sino evite este punto.
+Si quiere usar [Protostar](https://github.com/Nadai2010/Nadai-ERC721-Protostar-Cairo#instalaci%C3%B3n), siga esta repo para configurarla, sino evite este punto.
 
 ## Implementación de un ERC20
 
