@@ -196,3 +196,167 @@ starknet deploy --contract ERC20 --inputs arg1 arg2 arg3 --network alpha-goerli
 --------------
 
 ### Ejercicio 3: 
+
+### Ejercicio 3 - Creación de un Faucet
+
+- Cree una función `get_tokens()` en su contrato. Debería acuñar parte de su token para la persona que llama. Deberá devolver el monto exacto que acuña para que el Evaluador verifique que el incremento de saldo y el monto enviado correspondan.
+- Implemente su contrato y llame a [`submit_erc20_solution()`](contracts/Evaluator.cairo#L733) en el Evaluador para registrarlo
+- Llame a la función [`ex3_test_get_token()`](contracts/Evaluator.cairo#L209) que distribuye tokens a la persona que llama (2 pts).
+
+----------
+- **Nadai con Soluciones [Ejercicio 3](https://github.com/Nadai2010/Nadai-Cairo-ERC20-Starknet-Edu/blob/master/contracts/Soluci%C3%B3n/ERC20ex01.md)**
+--------------
+
+### Ejercicios 4, 5 y 6 - Creación de una lista de permitidos
+
+- Crear una función de lista de permisos de clientes. Solo permitir que los usuarios de la lista puedan llamar a `get_tokens()`.
+- Crear una función `request_allowlist()` que el evaluador llamará durante la comprobación del ejercicio para poder obtener tokens.
+- Cree una función `allowlist_level()` a la que cualquiera pueda llamar para saber si una cuenta puede obtener tokens.
+- Implemente su contrato y llame a [`submit_erc20_solution()`](contracts/Evaluator.cairo#L733) en el Evaluador para registrarlo
+- Llame a [`ex4_5_6_test_fencing()`](contracts/Evaluator.cairo#L231) en el evaluador para mostrar
+   - No puede obtener tokens usando `get_tokens()` (1 pt)
+   - Puede llamar a `request_allowlist()` y tener confirmación de que pasó (1 pt)
+   - Luego puede obtener tokens usando el mismo `get_tokens()` (2 pt)
+
+----------
+- **Nadai con Soluciones [Ejercicio 4-5-6](https://github.com/Nadai2010/Nadai-Cairo-ERC20-Starknet-Edu/blob/master/contracts/Soluci%C3%B3n/ERC20ex01.md)**
+--------------
+
+### Ejercicios 7, 8 y 9: creación de una lista de permitidos de varios niveles
+
+- Crear una función de listado de múltiples niveles de clientes. Solo permitir que los usuarios de la lista puedan llamar a `get_token()`; y los clientes deben recibir una cantidad diferente de tokens según su nivel
+- Cree una función `request_allowlist_level()` que el evaluador llamará durante la verificación del ejercicio para poder obtener tokens en un cierto nivel de nivel
+- Modificar la función `allowlist_level()` para que devuelva el nivel permitido de cuentas.
+- Implemente su contrato y llame a [`submit_erc20_solution()`](contracts/Evaluator.cairo#L733) en el Evaluador para registrarlo
+- Llame a [`ex7_8_9_test_fencing_levels()`](contracts/Evaluator.cairo#L291) en el evaluador para mostrar
+   - No puede obtener tokens usando `get_tokens()` (1 pt)
+   - Puede llamar a `request_allowlist_level(1)` , luego llamar a `get_tokens()` y obtener N tokens (2 puntos)
+   - Puede llamar a `request_allowlist_level(2)` , luego llamar a `get_tokens()` y obtener > N tokens (2 puntos)
+   
+-----------
+- **Nadai con Soluciones [Ejercicio 7-8-9](https://github.com/Nadai2010/Nadai-Cairo-ERC20-Starknet-Edu/blob/master/contracts/Soluci%C3%B3n/ERC20ex01.md)**
+--------------
+
+### Ejercicio 10 - Reclamación de dummy tokens
+
+- Reclamar tokens manualmente en el reclamable preimplementado [ERC20](https://goerli.voyager.online/contract/0x66aa72ce2916bbfc654fd18f9c9aaed29a4a678274639a010468a948a5e2a96) ([DTK tokens](contracts/token/ERC20/DTKERC20.cairo)) (1 pts)
+- Reclama tus puntos llamando a [`ex10_claimed_tokens()`](contracts/Evaluator.cairo#L364) en el evaluador (1 pts)
+
+----------
+- **Nadai con Soluciones [Ejercicio 10](https://github.com/Nadai2010/Nadai-Cairo-ERC20-Starknet-Edu/blob/master/contracts/Soluci%C3%B3n/ERC20ex01.md)**
+--------------
+
+### Ejercicio 11 - Llamar al faucet desde tu contrato
+
+- Crear un contrato `ExerciseSolution` que:
+   - Puede reclamar y mantener tokens DTK en nombre de la dirección que llama
+   - Realiza un seguimiento de las direcciones que reclamaron tokens y cuánto
+   - Implementa una función `tokens_in_custody` para mostrar estas cantidades reclamadas
+- Implemente su contrato y llame a [`submit_exercise_solution()`](contracts/Evaluator.cairo#L754) en el Evaluador para registrarlo
+- Llame a [`ex11_claimed_from_contract()`](contracts/Evaluator.cairo#L383) en el evaluador para probar que su código funciona (3 pts)
+
+----------
+- **Nadai con Soluciones [Ejercicio 11](https://github.com/Nadai2010/Nadai-Cairo-ERC20-Starknet-Edu/blob/master/contracts/Soluci%C3%B3n/ERC20ex01.md)**
+--------------
+
+### Ejercicio 12: uso de transferFrom en un ERC20
+
+- Cree una función `withdraw_all_tokens()` en `ExerciseSolution` para retirar los tokens reclamados de `ExerciseSolution` a la dirección que los reclamó inicialmente
+- Implemente su contrato y llame a [`submit_exercise_solution()`](contracts/Evaluator.cairo#L754) en el Evaluador para registrarlo
+- Llame a [`ex12_withdraw_from_contract()`](contracts/Evaluator.cairo#L431) en el evaluador para probar que su código funciona (2 pts)
+
+----------
+- **Nadai con Soluciones [Ejercicio 12](https://github.com/Nadai2010/Nadai-Cairo-ERC20-Starknet-Edu/blob/master/contracts/Soluci%C3%B3n/ERC20ex01.md)**
+--------------
+
+### Ejercicio 13 - Aprobar
+
+- Acuñe algunos tokens DTK y use voyager para autorizar al evaluador a manipularlos
+- Llame a [`ex13_approved_exercise_solution()`](contracts/Evaluator.cairo#L491) para reclamar puntos (1 pts)
+
+----------
+- **Nadai con Soluciones [Ejercicio 13](https://github.com/Nadai2010/Nadai-Cairo-ERC20-Starknet-Edu/blob/master/contracts/Soluci%C3%B3n/ERC20ex01.md)**
+--------------
+
+### Ejercicio 14 - Revocación de la aprobación
+
+- Utilizar voyager para revocar la autorización anterior.
+- Llame a [`ex14_revoked_exercise_solution()`](contracts/Evaluator.cairo#L512) para reclamar puntos (1 pts)
+
+----------
+- **Nadai con Soluciones [Ejercicio 14](https://github.com/Nadai2010/Nadai-Cairo-ERC20-Starknet-Edu/blob/master/contracts/Soluci%C3%B3n/ERC20ex01.md)**
+--------------
+
+### Ejercicio 15 - Usando transferFrom
+
+- Cree una función `deposit_tokens()` en su contrato a través de la cual un usuario pueda depositar DTK en `ExerciseSolution`, utilizando `transferFrom` de DTK
+- Implemente su contrato y llame a [`submit_exercise_solution()`](contracts/Evaluator.cairo#L754) en el Evaluador para registrarlo
+- Llame a [`ex15_deposit_tokens`](contracts/Evaluator.cairo#L533) en el evaluador para probar que su código funciona (2 pts)
+
+----------
+- **Nadai con Soluciones [Ejercicio 15](https://github.com/Nadai2010/Nadai-Cairo-ERC20-Starknet-Edu/blob/master/contracts/Soluci%C3%B3n/ERC20ex01.md)**
+--------------
+
+### Ejercicio 16 y 17 - Seguimiento de depósitos con una envoltura ERC20
+
+- Cree e implemente un nuevo ERC20 `ExerciseSolutionToken` para rastrear el depósito del usuario. Este ERC20 debe ser minable y la autorización de mint otorgada a `ExerciseSolution`
+- Implemente `ExerciseSolutionToken` y asegúrese de que `ExerciseSolution` conozca su dirección
+- Actualice la función de depósito en `ExerciseSolution` para que los saldos de los usuarios se tokenicen: cuando se realiza un depósito en `ExerciseSolution`, los tokens se acuñan en `ExerciseSolutionToken` y se transfieren a la dirección de depósito
+- Implemente su contrato y llame a [`submit_exercise_solution()`](contracts/Evaluator.cairo#L754) en el Evaluador para registrarlo
+- Llame a [`ex16_17_deposit_and_mint`](contracts/Evaluator.cairo#L591) en el evaluador para probar que su código funciona (4 pts)
+
+----------
+- **Nadai con Soluciones [Ejercicio 16-17](https://github.com/Nadai2010/Nadai-Cairo-ERC20-Starknet-Edu/blob/master/contracts/Soluci%C3%B3n/ERC20ex01.md)**
+--------------
+
+### Ejercicio 18 - Retirar fichas y quemar fichas envueltas
+
+- Actualice la función de retiro `ExerciseSolution` para que use `transferFrom()` en `ExerciseSolutionToken`, queme estos tokens y devuelva los DTK
+- Implemente su contrato y llame a [`submit_exercise_solution()`](contracts/Evaluator.cairo#L754) en el Evaluador para registrarlo
+- Llame a [`ex18_withdraw_and_burn`](contracts/Evaluator.cairo#L659) en el evaluador para probar que su código funciona (2 pts)
+
+----------
+- **Nadai con Soluciones [Ejercicio 18](https://github.com/Nadai2010/Nadai-Cairo-ERC20-Starknet-Edu/blob/master/contracts/Soluci%C3%B3n/ERC20ex01.md)**
+--------------
+​
+## Anexo - Herramientas útiles
+
+### Conversión de datos a y desde decimal
+
+Para convertir datos en fieltro, use el script [`utils.py`](utils.py)
+Para abrir Python en modo interactivo después de ejecutar el script.
+
+  ```bash
+  python -i utils.py
+  ```
+
+  ```python
+  >>> str_to_felt('ERC20-101')
+  1278752977803006783537
+  ```
+
+### Comprobando tu progreso y contando tus puntos
+
+​
+Sus puntos se acreditarán en su billetera; aunque esto puede tomar algún tiempo. Si desea controlar su conteo de puntos en tiempo real, ¡también puede ver su saldo en Voyager!
+​
+
+- Ve a la [ERC20 counter](https://goerli.voyager.online/contract/0x228c0e6db14052a66901df14a9e8493c0711fa571860d9c62b6952997aae58b#readContract) en voyager, en la pestaña "leer contrato"
+- Ingrese su dirección en decimal en la función "balanceOf"
+
+También puede consultar su progreso general [aquí](https://starknet-tutorials.vercel.app)
+​
+
+### Estado de la transacción
+
+​
+¿Envió una transacción y se muestra como "no detectada" en voyager? Esto puede significar dos cosas:
+​
+
+- Su transacción está pendiente y se incluirá en un bloque en breve. Entonces será visible en Voyager.
+- Su transacción no fue válida y NO se incluirá en un bloque (no existe una transacción fallida en StarkNet).
+​
+Puede (y debe) verificar el estado de su transacción con la siguiente URL [https://alpha4.starknet.io/feeder_gateway/get_transaction_receipt?transactionHash=](https://alpha4.starknet.io/feeder_gateway/get_transaction_receipt?transactionHash=)  , donde puede agregar el hash de su transacción.
+​
+
+​
